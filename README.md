@@ -50,6 +50,14 @@ The application will launch at `http://localhost:5173/`.
 ```bash
 npm run build
 ```
+The build output is written to `dist/`. GitHub Pages deployment also creates
+`dist/404.html` so direct visits and refreshes on client-side routes work.
+
+### 4. Deploy to GitHub Pages
+
+The site is configured for `https://adullamite.github.io/Ramys-Oils-More/`.
+Push to `main` to build and deploy with GitHub Actions. In the repository,
+open **Settings → Pages** and set **Source** to **GitHub Actions**.
 
 ---
 

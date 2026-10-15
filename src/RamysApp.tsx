@@ -16,7 +16,7 @@ import { LegalPage } from './pages/LegalPage';
 export const RamysApp: React.FC = () => {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<HomePage />} />
