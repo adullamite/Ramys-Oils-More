@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-forest-deep: #102A22;
+  --color-forest-darkest: #091712;
+  --color-botanical-green: #254C3C;
+  --color-muted-olive: #747B50;
+  --color-warm-ivory: #F6F1E7;
+  --color-soft-cream: #E8DFCD;
+  --color-champagne-gold: #C6A66B;
+  --color-champagne-light: #E0CFA4;
+  --color-charcoal: #252923;
+  --color-charcoal-muted: #595E57;
+}
+
+:root {
+  --color-forest: #102A22;
+  --color-gold: #C6A66B;
+  --color-cream: #F6F1E7;
+}
+
+/* Base resets & typography */
+html, body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-ivory);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+}
+
+/* Custom Botanical Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #102A22;
+}
+::-webkit-scrollbar-thumb {
+  background: #254C3C;
+  border-radius: 4px;
+  border: 2px solid #102A22;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A66B;
+}
+
+/* Subtle gold foil border & text accents */
+.border-gold-glow {
+  border-color: rgba(198, 166, 107, 0.35);
+  box-shadow: 0 0 15px rgba(198, 166, 107, 0.08);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F6F1E7 0%, #C6A66B 60%, #E0CFA4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark botanical glass container */
+.bg-forest-glass {
+  background: rgba(16, 42, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(198, 166, 107, 0.15);
+}
+
+.bg-cream-glass {
+  background: rgba(246, 241, 231, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(37, 76, 60, 0.1);
+}
+
+/* Marquee infinite scroll */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse badge animation */
+@keyframes softPulse {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(0.98); }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 3.5s ease-in-out infinite;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee {
+    animation: none;
+    transform: none;
+  }
+}
